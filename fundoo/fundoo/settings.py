@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'rest_auth',
     'fundooapp',
     'channels',
-    'chat',
+    'chat', 
+   
+    
     'rest_framework.authentication',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -153,3 +155,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # LOGIN_REDIRECT_URL = 'sign_in'
 # LOGOUT_REDIRECT_URL = 'logout'
 CSRF_COOKIE_SECURE = False
+
+
+import sys
+
+if 'test' in sys.argv:
+        DATABASES = {
+                        'default': {
+                                        'ENGINE': 'django.db.backends.sqlite3',
+                                                    'NAME': ':memory:',  # in-memory DB for tests
+                                                            }
+                            }
+
