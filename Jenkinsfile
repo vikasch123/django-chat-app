@@ -95,7 +95,8 @@ pipeline {
         echo " Deploying production build for ${BRANCH_NAME} ..."
         sh '''
           echo "Packaging build..."
-          tar czf build-${BRANCH_NAME}.tar.gz .
+          tar --exclude=.git --exclude=build-main.tar.gz -czf build-main.tar.gz .
+
           echo "Transfer artifact to server..."
           echo " Deployment stage completed (placeholder)."
         '''
